@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spanish Phone Conversation Guide</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Montserrat', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #7ba1a5 0%, #ffe8e3 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .pinterest-pin {
+            width: 600px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '📞';
+            font-size: 40px;
+            position: absolute;
+            top: 15px;
+            left: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px 25px;
+        }
+
+        .phone-section {
+            margin-bottom: 30px;
+            background: #f8ebec;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #ef7c8e;
+        }
+
+        .phone-section h2 {
+            color: #373f45;
+            margin: 0 0 20px 0;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .conversation-flow {
+            display: grid;
+            gap: 15px;
+        }
+
+        .conversation-step {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #ef7c8e;
+        }
+
+        .step-label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #ef7c8e;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .spanish-phrase {
+            font-size: 16px;
+            font-weight: bold;
+            color: #373f45;
+            margin-bottom: 5px;
+        }
+
+        .english-translation {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .phrases-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .phrase-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+            border-top: 3px solid #7ba1a5;
+        }
+
+        .phrase-category {
+            font-size: 12px;
+            font-weight: bold;
+            color: #7ba1a5;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .phrase-item {
+            margin-bottom: 10px;
+        }
+
+        .phrase-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .time-questions {
+            background: #ffe8e3;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 5px solid #db6565;
+            margin-top: 25px;
+        }
+
+        .time-questions h3 {
+            color: #db6565;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .question-examples {
+            display: grid;
+            gap: 12px;
+        }
+
+        .question-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .question-spanish {
+            font-weight: bold;
+            color: #db6565;
+            font-size: 15px;
+        }
+
+        .question-english {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .pro-tips {
+            background: #f8ebec;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 5px solid #7ba1a5;
+            margin-top: 25px;
+        }
+
+        .pro-tips h3 {
+            color: #6b8d94;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tip-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tip-list li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #373f45;
+            border-bottom: 1px solid #ffe8e3;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .tip-list li::before {
+            content: '💡';
+            font-size: 14px;
+            position: absolute;
+            left: 0;
+        }
+
+        .tip-list li:last-child {
+            border-bottom: none;
+        }
+
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-text {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .cta {
+            background: #ef7c8e;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .cta:hover {
+            background: #db6565;
+            transform: translateY(-2px);
+        }
+
+        .emergency-note {
+            background: #ffe8e3;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            border-left: 4px solid #e89a8a;
+            text-align: center;
+        }
+
+        .emergency-note p {
+            margin: 0;
+            font-size: 13px;
+            color: #373f45;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

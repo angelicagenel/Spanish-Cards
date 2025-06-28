@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A la hora de la comida - Meal Times</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Montserrat', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #7ba1a5 0%, #ffe8e3 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .pinterest-pin {
+            width: 600px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px 25px;
+        }
+
+        .comparison-section {
+            margin-bottom: 25px;
+        }
+
+        .meal-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+            background: #f8ebec;
+            border-radius: 15px;
+            padding: 20px;
+            border-top: 4px solid #ef7c8e;
+        }
+
+        .meal-title {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #373f45;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .country-column {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+
+        .country-header {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fd746c;
+            margin-bottom: 12px;
+            text-align: center;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #fed7d7;
+        }
+
+        .time-info {
+            background: #fff5f5;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border-left: 3px solid #fd746c;
+        }
+
+        .time-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 4px;
+        }
+
+        .time-description {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .food-items {
+            font-size: 13px;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .cultural-insight {
+            background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .cultural-insight h3 {
+            margin: 0 0 15px 0;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .cultural-insight p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .fun-facts {
+            background: #ffe8e3;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 5px solid #e89a8a;
+        }
+
+        .fun-facts h3 {
+            color: #db6565;
+            margin: 0 0 15px 0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .fact-list li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: #373f45;
+            border-bottom: 1px solid #f8ebec;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .fact-list li::before {
+            content: '•';
+            color: #e89a8a;
+            font-size: 18px;
+            position: absolute;
+            left: 0;
+        }
+
+        .fact-list li:last-child {
+            border-bottom: none;
+        }
+
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-text {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .cta {
+            background: #ef7c8e;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .cta:hover {
+            background: #db6565;
+            transform: translateY(-2px);
+        }
+
+        .spanish-vocab {
+            background: #f0fff4;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            border-left: 4px solid #48bb78;
+        }
+
+        .spanish-vocab h4 {
+            color: #2f855a;
+            margin: 0 0 10px 0;
+            font-size: 16px;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .vocab-item {
+            font-size: 13px;
+            color: #2d3748;
+        }
+
+        .spanish-word {
+            font-weight: bold;
+            color: #2f855a;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
