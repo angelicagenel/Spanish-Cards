@@ -1,286 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spanish Inclusive Language Cards - 500x500</title>
     <style>
-        body {
-            margin: 0;
-            padding: 40px;
-            font-family: 'Montserrat', 'Arial', sans-serif;
-            background: #f0f0f0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: center;
-        }
-        @media (max-width: 480px) {
-      .main-title {
-    font-size: 38px;
-  }
+      body {
+        margin: 0;
+        padding: 40px;
+        font-family: 'Montserrat', 'Arial', sans-serif;
+        background: #f0f0f0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: center;
+      }
 
-  .spanish-word {
-    font-size: 42px;
-  }
-
-  .english-word,
-  .transformation,
-  .subtitle {
-    font-size: 16px;
-  }
-
-  .explanation-text {
-    font-size: 16px;
-  }
-
-  .emoji {
-    font-size: 50px;
-  }
-}
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-        .card {
-            width: 90%;
-            max-width: 500px;
-            aspect-ratio: 1 / 1;
-
-            background: linear-gradient(135deg, #ffe8e3 0%, #f8ebec 100%);
-            border-radius: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border: 8px solid #ef7c8e;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 120px;
-            background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%);
-        }
-
-        /* Category Cards */
-        .category-card {
-            border-color: #7ba1a5;
-        }
-        
-        .category-card::before {
-            background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%);
-        }
-
-        .emoji {
-            font-size: 80px;
-            margin-bottom: 20px;
-            z-index: 2;
-            position: relative;
-            margin-top: -40px;
-        }
-
+      @media (max-width: 480px) {
         .main-title {
-            font-size: 64px;
-            font-weight: bold;
-            color: #373f45;
-            margin: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            z-index: 2;
-            position: relative;
-            line-height: 1;
+          font-size: 38px;
         }
 
-        .subtitle {
-            font-size: 24px;
-            color: #666;
-            font-style: italic;
-            font-weight: 500;
-            z-index: 2;
-            position: relative;
-            margin-top: 10px;
-        }
-
-        /* Example Cards */
         .spanish-word {
-            font-size: 72px;
-            font-weight: bold;
-            color: #373f45;
-            margin: 20px 0 10px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            z-index: 2;
-            position: relative;
-            line-height: 1;
+          font-size: 42px;
         }
 
-        .english-word {
-            font-size: 32px;
-            color: #666;
-            font-style: italic;
-            font-weight: 500;
-            z-index: 2;
-            position: relative;
-            margin-top: 5px;
-        }
-
-        .transformation {
-            font-size: 28px;
-            color: #7ba1a5;
-            font-weight: 600;
-            z-index: 2;
-            position: relative;
-            margin-top: 15px;
-            background: rgba(255,255,255,0.9);
-            padding: 10px 20px;
-            border-radius: 15px;
-        }
-
-        /* Color variations */
-        .card-1 { border-color: #ef7c8e; }
-        .card-1::before { background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%); }
-
-        .card-2 { border-color: #7ba1a5; }
-        .card-2::before { background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%); }
-
-        .card-3 { border-color: #e89a8a; }
-        .card-3::before { background: linear-gradient(135deg, #e89a8a 0%, #db6565 100%); }
-
-        .card-4 { border-color: #ef7c8e; }
-        .card-4::before { background: linear-gradient(135deg, #ef7c8e 0%, #e89a8a 100%); }
-
-        .card-5 { border-color: #7ba1a5; }
-        .card-5::before { background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%); }
-
-        .card-6 { border-color: #db6565; }
-        .card-6::before { background: linear-gradient(135deg, #db6565 0%, #ef7c8e 100%); }
-
-        .card-7 { border-color: #e89a8a; }
-        .card-7::before { background: linear-gradient(135deg, #e89a8a 0%, #7ba1a5 100%); }
-
-        .card-8 { border-color: #6b8d94; }
-        .card-8::before { background: linear-gradient(135deg, #6b8d94 0%, #7ba1a5 100%); }
-
-        .explanation-box {
-            background: rgba(255,255,255,0.95);
-            border-radius: 20px;
-            padding: 25px;
-            width: 80%;
-            z-index: 2;
-            position: relative;
-            border-top: 6px solid #ef7c8e;
-            margin-top: 20px;
+        .english-word,
+        .transformation,
+        .subtitle {
+          font-size: 16px;
         }
 
         .explanation-text {
-            font-size: 20px;
-            color: #373f45;
-            line-height: 1.3;
-            font-weight: 500;
+          font-size: 16px;
         }
+
+        .emoji {
+          font-size: 50px;
+        }
+      }
+
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .card {
+        width: 90%;
+        max-width: 500px;
+        aspect-ratio: 1 / 1;
+        background: linear-gradient(135deg, #ffe8e3 0%, #f8ebec 100%);
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border: 8px solid #ef7c8e;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 120px;
+        background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%);
+      }
+
+      /* Category Cards */
+      .category-card {
+        border-color: #7ba1a5;
+      }
+
+      .category-card::before {
+        background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%);
+      }
+
+      .emoji {
+        font-size: 80px;
+        margin-bottom: 20px;
+        z-index: 2;
+        position: relative;
+        margin-top: -40px;
+      }
+
+      .main-title {
+        font-size: 64px;
+        font-weight: bold;
+        color: #373f45;
+        margin: 20px 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        position: relative;
+        line-height: 1;
+      }
+
+      .subtitle {
+        font-size: 24px;
+        color: #666;
+        font-style: italic;
+        font-weight: 500;
+        z-index: 2;
+        position: relative;
+        margin-top: 10px;
+      }
+
+      /* Example Cards */
+      .spanish-word {
+        font-size: 72px;
+        font-weight: bold;
+        color: #373f45;
+        margin: 20px 0 10px 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        position: relative;
+        line-height: 1;
+      }
+
+      .english-word {
+        font-size: 32px;
+        color: #666;
+        font-style: italic;
+        font-weight: 500;
+        z-index: 2;
+        position: relative;
+        margin-top: 5px;
+      }
+
+      .transformation {
+        font-size: 28px;
+        color: #7ba1a5;
+        font-weight: 600;
+        z-index: 2;
+        position: relative;
+        margin-top: 15px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 10px 20px;
+        border-radius: 15px;
+      }
+
+      /* Color variations */
+      .card-1 {
+        border-color: #ef7c8e;
+      }
+
+      .card-1::before {
+        background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%);
+      }
+
+      .card-2 {
+        border-color: #7ba1a5;
+      }
+
+      .card-2::before {
+        background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%);
+      }
+
+      .card-3 {
+        border-color: #e89a8a;
+      }
+
+      .card-3::before {
+        background: linear-gradient(135deg, #e89a8a 0%, #db6565 100%);
+      }
+
+      .card-4 {
+        border-color: #ef7c8e;
+      }
+
+      .card-4::before {
+        background: linear-gradient(135deg, #ef7c8e 0%, #e89a8a 100%);
+      }
+
+      .card-5 {
+        border-color: #7ba1a5;
+      }
+
+      .card-5::before {
+        background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%);
+      }
+
+      .card-6 {
+        border-color: #db6565;
+      }
+
+      .card-6::before {
+        background: linear-gradient(135deg, #db6565 0%, #ef7c8e 100%);
+      }
+
+      .card-7 {
+        border-color: #e89a8a;
+      }
+
+      .card-7::before {
+        background: linear-gradient(135deg, #e89a8a 0%, #7ba1a5 100%);
+      }
+
+      .card-8 {
+        border-color: #6b8d94;
+      }
+
+      .card-8::before {
+        background: linear-gradient(135deg, #6b8d94 0%, #7ba1a5 100%);
+      }
+
+      .explanation-box {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 25px;
+        width: 80%;
+        z-index: 2;
+        position: relative;
+        border-top: 6px solid #ef7c8e;
+        margin-top: 20px;
+      }
+
+      .explanation-text {
+        font-size: 20px;
+        color: #373f45;
+        line-height: 1.3;
+        font-weight: 500;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Category Card 1: Main Concept -->
     <div class="card category-card">
-        <div class="emoji">🌈</div>
-        <div class="main-title">LENGUAJE<br>INCLUSIVO</div>
-        <div class="explanation-box">
-            <div class="explanation-text">
-                Gender-inclusive language<br>
-                using <strong>-e</strong> endings<br>
-                to respect all identities
-            </div>
-        </div>
+      <div class="emoji">🌈</div>
+      <div class="main-title">LENGUAJE <br>INCLUSIVO </div>
+      <div class="explanation-box">
+        <div class="explanation-text"> Gender-inclusive language <br> using <strong>-e</strong> endings <br> to respect all identities </div>
+      </div>
     </div>
-
     <!-- Category Card 2: How it Works -->
     <div class="card category-card">
-        <div class="emoji">🔄</div>
-        <div class="main-title">HOW IT<br>WORKS</div>
-        <div class="explanation-box">
-            <div class="explanation-text">
-                Replace <strong>-o/-a</strong><br>
-                endings with <strong>-e</strong><br>
-                to create neutral forms
-            </div>
+      <div class="emoji">🔄</div>
+      <div class="main-title">HOW IT <br>WORKS </div>
+      <div class="explanation-box">
+        <div class="explanation-text"> Replace <strong>-o/-a</strong>
+          <br> endings with <strong>-e</strong>
+          <br> to create neutral forms
         </div>
+      </div>
     </div>
-
     <!-- Example Card 1: Hermane -->
     <div class="card card-1">
-        <div class="emoji">👥</div>
-        <div class="spanish-word">HERMANE</div>
-        <div class="english-word">Sibling</div>
-        <div class="transformation">hermano/hermana → hermane</div>
+      <div class="emoji">👥</div>
+      <div class="spanish-word">HERMANE</div>
+      <div class="english-word">Sibling</div>
+      <div class="transformation">hermano/hermana → hermane</div>
     </div>
-
     <!-- Example Card 2: Híje -->
     <div class="card card-2">
-        <div class="emoji">👶</div>
-        <div class="spanish-word">HÍJE</div>
-        <div class="english-word">Child</div>
-        <div class="transformation">hijo/hija → híje</div>
+      <div class="emoji">👶</div>
+      <div class="spanish-word">HÍJE</div>
+      <div class="english-word">Child</div>
+      <div class="transformation">hijo/hija → híje</div>
     </div>
-
     <!-- Example Card 3: Niñes -->
     <div class="card card-3">
-        <div class="emoji">🧒</div>
-        <div class="spanish-word">NIÑES</div>
-        <div class="english-word">Kids</div>
-        <div class="transformation">niños/niñas → niñes</div>
+      <div class="emoji">🧒</div>
+      <div class="spanish-word">NIÑES</div>
+      <div class="english-word">Kids</div>
+      <div class="transformation">niños/niñas → niñes</div>
     </div>
-
     <!-- Example Card 4: Amigue -->
     <div class="card card-4">
-        <div class="emoji">🤝</div>
-        <div class="spanish-word">AMIGUE</div>
-        <div class="english-word">Friend</div>
-        <div class="transformation">amigo/amiga → amigue</div>
+      <div class="emoji">🤝</div>
+      <div class="spanish-word">AMIGUE</div>
+      <div class="english-word">Friend</div>
+      <div class="transformation">amigo/amiga → amigue</div>
     </div>
-
     <!-- Example Card 5: Maestre -->
     <div class="card card-5">
-        <div class="emoji">👩‍🏫</div>
-        <div class="spanish-word">MAESTRE</div>
-        <div class="english-word">Teacher</div>
-        <div class="transformation">maestro/maestra → maestre</div>
+      <div class="emoji">👩‍🏫</div>
+      <div class="spanish-word">MAESTRE</div>
+      <div class="english-word">Teacher</div>
+      <div class="transformation">maestro/maestra → maestre</div>
     </div>
-
     <!-- Example Card 6: Tíe -->
     <div class="card card-6">
-        <div class="emoji">👨‍👩‍👧‍👦</div>
-        <div class="spanish-word">TÍE</div>
-        <div class="english-word">Aunt/Uncle</div>
-        <div class="transformation">tío/tía → tíe</div>
+      <div class="emoji">👨‍👩‍👧‍👦</div>
+      <div class="spanish-word">TÍE</div>
+      <div class="english-word">Aunt/Uncle</div>
+      <div class="transformation">tío/tía → tíe</div>
     </div>
-
     <!-- Example Card 7: Estudiante -->
     <div class="card card-7">
-        <div class="emoji">📚</div>
-        <div class="spanish-word">ESTUDIANTE</div>
-        <div class="english-word">Student</div>
-        <div class="transformation">Already gender-neutral!</div>
+      <div class="emoji">📚</div>
+      <div class="spanish-word">ESTUDIANTE</div>
+      <div class="english-word">Student</div>
+      <div class="transformation">Already gender-neutral!</div>
     </div>
-
     <!-- Example Card 8: Tips -->
     <div class="card card-8">
-        <div class="emoji">💡</div>
-        <div class="main-title">TIPS</div>
-        <div class="explanation-box">
-            <div class="explanation-text">
-                Some words are already<br>
-                neutral: estudiante,<br>
-                persona, artista
-            </div>
-        </div>
+      <div class="emoji">💡</div>
+      <div class="main-title">TIPS</div>
+      <div class="explanation-box">
+        <div class="explanation-text"> Some words are already <br> neutral: estudiante, <br> persona, artista </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
