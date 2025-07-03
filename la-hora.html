@@ -3,370 +3,451 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spanish Time Expressions Cheat Sheet</title>
+    <title>Spanish Time Expression Cards</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 20px;
             font-family: 'Montserrat', 'Arial', sans-serif;
             background: linear-gradient(135deg, #7ba1a5 0%, #ffe8e3 100%);
             display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
         }
 
-        .pinterest-pin {
-            width: 600px;
+        .time-card {
+            width: 100%;
+            max-width: 400px;
+            min-height: 600px;
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
             position: relative;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%);
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        .header::before {
-            content: '⏰';
-            font-size: 40px;
-            position: absolute;
-            top: 15px;
-            left: 20px;
-        }
-
-        .header h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header p {
-            margin: 8px 0 0 0;
-            font-size: 16px;
-            opacity: 0.9;
-        }
-
-        .content {
-            padding: 30px 25px;
-        }
-
-        .time-section {
-            margin-bottom: 35px;
-            background: #f8ebec;
-            border-radius: 15px;
-            padding: 25px;
-            border-left: 5px solid #ef7c8e;
-        }
-
-        .time-section h2 {
-            color: #373f45;
-            margin: 0 0 20px 0;
-            font-size: 22px;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 10px;
-        }
-
-        .clock-examples {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .clock-item {
             text-align: center;
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            padding: 50px 25px 70px 25px;
         }
 
-        .clock {
-            width: 80px;
-            height: 80px;
-            border: 4px solid #7ba1a5;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            position: relative;
-            background: white;
+        /* Responsive sizing */
+        @media (min-width: 600px) {
+            body {
+                padding: 40px;
+                gap: 30px;
+            }
+            .time-card {
+                width: 45%;
+                min-width: 350px;
+                max-width: 450px;
+                min-height: 700px;
+                padding: 60px 35px 80px 35px;
+            }
         }
 
-        .clock::before {
+        @media (min-width: 900px) {
+            .time-card {
+                width: 30%;
+                min-width: 380px;
+                max-width: 500px;
+                min-height: 800px;
+                padding: 70px 45px 90px 45px;
+            }
+        }
+
+        /* Header gradient background */
+        .time-card::before {
             content: '';
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #373f45;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 3;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            z-index: 1;
         }
 
-        .clock-1::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 25px;
-            background: #373f45;
-            top: 15px;
+        @media (min-width: 600px) {
+            .time-card::before {
+                height: 140px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .time-card::before {
+                height: 160px;
+            }
+        }
+
+        /* Card color themes */
+        .intro-card::before { background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%); }
+        .structure-card::before { background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%); }
+        .phrase-card::before { background: linear-gradient(135deg, #e89a8a 0%, #db6565 100%); }
+        .numbers-card::before { background: linear-gradient(135deg, #ef7c8e 0%, #e89a8a 100%); }
+        .examples-card::before { background: linear-gradient(135deg, #6b8d94 0%, #7ba1a5 100%); }
+
+        /* CRITICAL: Perfect Emoji Positioning */
+        .emoji {
+            position: absolute !important;
+            top: 90px;
             left: 50%;
             transform: translateX(-50%);
-            transform-origin: bottom;
+            font-size: 3.5rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
         }
 
-        .clock-2::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 20px;
-            background: #373f45;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%) rotate(30deg);
-            transform-origin: bottom;
+        @media (min-width: 600px) {
+            .emoji {
+                top: 105px;
+                font-size: 4.5rem;
+                height: 70px;
+            }
         }
 
-        .clock-time {
-            font-size: 18px;
+        @media (min-width: 900px) {
+            .emoji {
+                top: 120px;
+                font-size: 5.5rem;
+                height: 80px;
+            }
+        }
+
+        .main-text {
+            font-size: 2.2rem;
             font-weight: bold;
             color: #373f45;
-            margin-bottom: 8px;
+            margin: 60px 0 15px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            z-index: 2;
+            position: relative;
+            line-height: 1.1;
+            word-wrap: break-word;
         }
 
-        .spanish-text {
-            font-size: 16px;
-            color: #ef7c8e;
-            font-weight: 600;
+        @media (min-width: 600px) {
+            .main-text {
+                font-size: 2.6rem;
+                margin: 70px 0 20px 0;
+            }
         }
 
-        .key-phrases {
-            background: #ffe8e3;
-            border-radius: 12px;
-            padding: 20px;
-            border-left: 5px solid #e89a8a;
+        @media (min-width: 900px) {
+            .main-text {
+                font-size: 3rem;
+                margin: 80px 0 25px 0;
+            }
         }
 
-        .key-phrases h3 {
-            color: #db6565;
-            margin: 0 0 15px 0;
-            font-size: 18px;
-        }
-
-        .phrase-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .phrase-item {
-            background: white;
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .phrase-spanish {
-            font-weight: bold;
-            color: #db6565;
-            font-size: 14px;
-        }
-
-        .phrase-english {
-            font-size: 12px;
+        .english-text {
+            font-size: 0.9rem;
             color: #666;
-            margin-top: 4px;
-        }
-
-        .footer {
-            background: #2d3748;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .footer-text {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        .cta {
-            background: #ef7c8e;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
+            font-style: italic;
+            font-weight: 500;
+            z-index: 2;
+            position: relative;
             margin-top: 10px;
-            transition: all 0.3s ease;
+            line-height: 1.3;
+            padding: 0 10px;
         }
 
-        .cta:hover {
-            background: #db6565;
-            transform: translateY(-2px);
+        @media (min-width: 600px) {
+            .english-text {
+                font-size: 1.1rem;
+                margin-top: 15px;
+                padding: 0 15px;
+            }
         }
 
-        .numbers {
+        @media (min-width: 900px) {
+            .english-text {
+                font-size: 1.25rem;
+                margin-top: 20px;
+                padding: 0 20px;
+            }
+        }
+
+        .examples-container {
+            z-index: 2;
+            position: relative;
+            width: 100%;
+            margin-top: 80px;
+        }
+
+        @media (min-width: 600px) {
+            .examples-container {
+                margin-top: 90px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .examples-container {
+                margin-top: 100px;
+            }
+        }
+
+        .example-item {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 12px;
+            margin: 8px 0;
+            border-left: 4px solid #ef7c8e;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #373f45;
+        }
+
+        @media (min-width: 600px) {
+            .example-item {
+                font-size: 1.05rem;
+                padding: 15px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .example-item {
+                font-size: 1.15rem;
+                padding: 18px;
+            }
+        }
+
+        .numbers-grid {
+            z-index: 2;
+            position: relative;
+            width: 100%;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 8px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .number-item {
-            background: white;
-            padding: 8px 4px;
-            border-radius: 6px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 8px;
+            padding: 10px 5px;
             text-align: center;
-            font-size: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #373f45;
+            border-left: 3px solid #ef7c8e;
         }
 
-        .number-spanish {
+        @media (min-width: 600px) {
+            .number-item {
+                font-size: 1rem;
+                padding: 12px 8px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .number-item {
+                font-size: 1.1rem;
+                padding: 15px 10px;
+            }
+        }
+
+        .structure-comparison {
+            z-index: 2;
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .comparison-item {
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #7ba1a5;
+            text-align: center;
+        }
+
+        .comparison-time {
+            font-size: 1.2rem;
             font-weight: bold;
             color: #373f45;
+            margin-bottom: 5px;
         }
 
-        .number-english {
-            color: #666;
-            font-size: 10px;
+        .comparison-spanish {
+            font-size: 1rem;
+            color: #7ba1a5;
+            font-weight: 600;
+        }
+
+        @media (min-width: 600px) {
+            .comparison-time {
+                font-size: 1.4rem;
+            }
+            .comparison-spanish {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .comparison-time {
+                font-size: 1.6rem;
+            }
+            .comparison-spanish {
+                font-size: 1.2rem;
+            }
+        }
+
+        .category-label {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.9);
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            color: #373f45;
+            font-weight: 600;
+            z-index: 2;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .category-label .english {
+            color: #999;
+            font-weight: 500;
+        }
+
+        @media (min-width: 600px) {
+            .category-label {
+                bottom: 25px;
+                padding: 8px 18px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .category-label {
+                bottom: 30px;
+                padding: 10px 22px;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="pinterest-pin">
-        <div class="header">
-            <h1>Spanish Time Expressions</h1>
-            <p>Essential phrases for telling time like a native!</p>
-        </div>
+    <!-- Introduction Card -->
+    <div class="time-card intro-card">
+        <div class="emoji">⏰</div>
+        <div class="main-text">¿QUÉ HORA ES?</div>
+        <div class="english-text">What time is it? The most important question for telling time in Spanish.</div>
+        <div class="category-label">Pregunta básica | <span class="english">Basic question</span></div>
+    </div>
 
-        <div class="content">
-            <div class="time-section">
-                <h2>💭 Common Questions</h2>
-                <div style="display: grid; gap: 15px;">
-                    <div style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-                        <div style="font-weight: bold; color: #2c5282; margin-bottom: 5px;">¿Qué hora es?</div>
-                        <div style="color: #666; font-size: 14px;">What time is it?</div>
-                    </div>
-                    <div style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-                        <div style="font-weight: bold; color: #2c5282; margin-bottom: 5px;">¿A qué hora...?</div>
-                        <div style="color: #666; font-size: 14px;">At what time...?</div>
-                    </div>
-                </div>
+    <!-- Structure Card -->
+    <div class="time-card structure-card">
+        <div class="emoji">🕐</div>
+        <div class="main-text">ESTRUCTURA</div>
+        <div class="structure-comparison">
+            <div class="comparison-item">
+                <div class="comparison-time">1:00</div>
+                <div class="comparison-spanish">Es la una</div>
             </div>
-
-            <div class="time-section">
-                <h2>🕐 Basic Time Structure</h2>
-                <div class="clock-examples">
-                    <div class="clock-item">
-                        <div class="clock clock-1"></div>
-                        <div class="clock-time">1:00</div>
-                        <div class="spanish-text">Es la una</div>
-                    </div>
-                    <div class="clock-item">
-                        <div class="clock clock-2"></div>
-                        <div class="clock-time">2:00</div>
-                        <div class="spanish-text">Son las dos</div>
-                    </div>
-                </div>
-                <p style="color: #666; font-size: 14px; text-align: center; margin: 0;">
-                    <strong>Remember:</strong> "Es la" for 1:00, "Son las" for all other hours
-                </p>
-            </div>
-
-            <div class="key-phrases">
-                <h3>🔑 Essential Time Phrases</h3>
-                <div class="phrase-grid">
-                    <div class="phrase-item">
-                        <div class="phrase-spanish">y cuarto</div>
-                        <div class="phrase-english">quarter past</div>
-                    </div>
-                    <div class="phrase-item">
-                        <div class="phrase-spanish">y media</div>
-                        <div class="phrase-english">half past</div>
-                    </div>
-                    <div class="phrase-item">
-                        <div class="phrase-spanish">para las/para la</div>
-                        <div class="phrase-english">to the hour</div>
-                    </div>
-                    <div class="phrase-item">
-                        <div class="phrase-spanish">en punto</div>
-                        <div class="phrase-english">o'clock</div>
-                    </div>
-                </div>
-
-                <div style="background: white; padding: 15px; border-radius: 10px; margin-top: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-                    <div style="font-weight: bold; color: #db6565; margin-bottom: 8px; font-size: 14px;">Examples:</div>
-                    <div style="font-size: 13px; color: #666; line-height: 1.4;">
-                        • 20 para las tres = 2:40<br>
-                        • Cuarto para la una = 12:45
-                    </div>
-                </div>
-
-                <div class="numbers">
-                    <div class="number-item">
-                        <div class="number-spanish">una</div>
-                        <div class="number-english">1</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number-spanish">dos</div>
-                        <div class="number-english">2</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number-spanish">tres</div>
-                        <div class="number-english">3</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number-spanish">cuatro</div>
-                        <div class="number-english">4</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number-spanish">cinco</div>
-                        <div class="number-english">5</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number-spanish">seis</div>
-                        <div class="number-english">6</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number-spanish">siete</div>
-                        <div class="number-english">7</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number-spanish">ocho</div>
-                        <div class="number-english">8</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number-spanish">nueve</div>
-                        <div class="number-english">9</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number-spanish">diez</div>
-                        <div class="number-english">10</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number-spanish">once</div>
-                        <div class="number-english">11</div>
-                    </div>
-                    <div class="number-item">
-                        <div class="number-spanish">doce</div>
-                        <div class="number-english">12</div>
-                    </div>
-                </div>
+            <div class="comparison-item">
+                <div class="comparison-time">2:00 - 12:00</div>
+                <div class="comparison-spanish">Son las dos/tres/cuatro...</div>
             </div>
         </div>
+        <div class="category-label">Estructura | <span class="english">Structure</span></div>
+    </div>
+
+    <!-- Y CUARTO Card -->
+    <div class="time-card phrase-card">
+        <div class="emoji">🕐</div>
+        <div class="main-text">Y CUARTO</div>
+        <div class="english-text">Quarter past - Add 15 minutes to the hour</div>
+        <div class="examples-container">
+            <div class="example-item">Son las dos y cuarto = 2:15</div>
+            <div class="example-item">Es la una y cuarto = 1:15</div>
+        </div>
+        <div class="category-label">Minutos | <span class="english">Minutes</span></div>
+    </div>
+
+    <!-- Y MEDIA Card -->
+    <div class="time-card phrase-card">
+        <div class="emoji">🕐</div>
+        <div class="main-text">Y MEDIA</div>
+        <div class="english-text">Half past - Add 30 minutes to the hour</div>
+        <div class="examples-container">
+            <div class="example-item">Son las tres y media = 3:30</div>
+            <div class="example-item">Es la una y media = 1:30</div>
+        </div>
+        <div class="category-label">Minutos | <span class="english">Minutes</span></div>
+    </div>
+
+    <!-- PARA LAS Card -->
+    <div class="time-card phrase-card">
+        <div class="emoji">🕐</div>
+        <div class="main-text">PARA LAS</div>
+        <div class="english-text">To the hour - Minutes before the next hour</div>
+        <div class="examples-container">
+            <div class="example-item">20 para las tres = 2:40</div>
+            <div class="example-item">Cuarto para la una = 12:45</div>
+        </div>
+        <div class="category-label">Minutos | <span class="english">Minutes</span></div>
+    </div>
+
+    <!-- EN PUNTO Card -->
+    <div class="time-card phrase-card">
+        <div class="emoji">🎯</div>
+        <div class="main-text">EN PUNTO</div>
+        <div class="english-text">O'clock - Exactly on the hour</div>
+        <div class="examples-container">
+            <div class="example-item">Son las cinco en punto = 5:00</div>
+            <div class="example-item">Es la una en punto = 1:00</div>
+        </div>
+        <div class="category-label">Exacto | <span class="english">Exact</span></div>
+    </div>
+
+    <!-- Numbers Card -->
+    <div class="time-card numbers-card">
+        <div class="emoji">🔢</div>
+        <div class="main-text">NÚMEROS</div>
+        <div class="numbers-grid">
+            <div class="number-item">una (1)</div>
+            <div class="number-item">dos (2)</div>
+            <div class="number-item">tres (3)</div>
+            <div class="number-item">cuatro (4)</div>
+            <div class="number-item">cinco (5)</div>
+            <div class="number-item">seis (6)</div>
+            <div class="number-item">siete (7)</div>
+            <div class="number-item">ocho (8)</div>
+            <div class="number-item">nueve (9)</div>
+            <div class="number-item">diez (10)</div>
+            <div class="number-item">once (11)</div>
+            <div class="number-item">doce (12)</div>
+        </div>
+        <div class="category-label">Números | <span class="english">Numbers</span></div>
+    </div>
+
+    <!-- Examples Card -->
+    <div class="time-card examples-card">
+        <div class="emoji">💡</div>
+        <div class="examples-container">
+            <div class="example-item">¿A qué hora...? = At what time...?</div>
+            <div class="example-item">A las dos = At 2:00</div>
+            <div class="example-item">A la una = At 1:00</div>
+            <div class="example-item">De la mañana = In the morning</div>
+            <div class="example-item">De la tarde = In the afternoon</div>
+            <div class="example-item">De la noche = At night</div>
+        </div>
+        <div class="category-label">Ejemplos | <span class="english">Examples</span></div>
     </div>
 </body>
 </html>
