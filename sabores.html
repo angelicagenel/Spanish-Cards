@@ -3,81 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spanish Flavor Cards - Mobile Optimized</title>
+    <title>Spanish Flavor Cards for Students</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
-            padding: 20px;
+            padding: 40px;
             font-family: 'Montserrat', 'Arial', sans-serif;
             background: #f0f0f0;
-            display: grid;
-            gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
             justify-content: center;
         }
 
-        /* Mobile-first: 2 cards per row */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            max-width: 100vw;
-            padding: 0 10px;
-        }
-
-        /* Tablet: 3 cards per row */
-        @media (min-width: 600px) {
-            .cards-container {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-                max-width: 900px;
-                padding: 0;
-            }
-        }
-
-        /* Desktop: 4 cards per row */
-        @media (min-width: 900px) {
-            .cards-container {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 25px;
-                max-width: 1200px;
-            }
-        }
-
         .flavor-card {
-            aspect-ratio: 1;
+            width: 500px;
+            height: 500px;
             background: linear-gradient(135deg, #ffe8e3 0%, #f8ebec 100%);
-            border-radius: 15px;
+            border-radius: 25px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            border: 4px solid #ef7c8e;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border: 8px solid #ef7c8e;
             position: relative;
             overflow: hidden;
-            min-height: 150px;
-        }
-
-        /* Larger cards on bigger screens */
-        @media (min-width: 600px) {
-            .flavor-card {
-                border-radius: 20px;
-                border-width: 6px;
-                min-height: 200px;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .flavor-card {
-                border-radius: 25px;
-                border-width: 8px;
-                min-height: 250px;
-            }
         }
 
         .flavor-card::before {
@@ -86,245 +38,40 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 60px;
+            height: 120px;
             background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%);
         }
 
-        @media (min-width: 600px) {
-            .flavor-card::before {
-                height: 80px;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .flavor-card::before {
-                height: 120px;
-            }
-        }
-
         .emoji {
-            font-size: 2rem;
-            margin-bottom: 8px;
+            font-size: 80px;
+            margin-bottom: 20px;
             z-index: 2;
             position: relative;
-            margin-top: -20px;
-        }
-
-        @media (min-width: 600px) {
-            .emoji {
-                font-size: 2.5rem;
-                margin-bottom: 12px;
-                margin-top: -25px;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .emoji {
-                font-size: 3.5rem;
-                margin-bottom: 15px;
-                margin-top: -35px;
-            }
+            margin-top: -40px;
         }
 
         .spanish-word {
-            font-size: 1.2rem;
+            font-size: 72px;
             font-weight: bold;
             color: #373f45;
-            margin: 5px 0;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             z-index: 2;
             position: relative;
             line-height: 1;
         }
 
-        @media (min-width: 600px) {
-            .spanish-word {
-                font-size: 1.8rem;
-                margin: 8px 0;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .spanish-word {
-                font-size: 2.5rem;
-                margin: 12px 0;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            }
-        }
-
         .english-word {
-            font-size: 0.9rem;
+            font-size: 48px;
             color: #666;
             font-style: italic;
             font-weight: 500;
             z-index: 2;
             position: relative;
-            margin-top: 2px;
-        }
-
-        @media (min-width: 600px) {
-            .english-word {
-                font-size: 1.1rem;
-                margin-top: 4px;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .english-word {
-                font-size: 1.5rem;
-                margin-top: 8px;
-            }
-        }
-
-        /* Category cards - full width on mobile, half width on larger screens */
-        .category-card {
-            grid-column: 1 / -1;
-            aspect-ratio: 2;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-
-        @media (min-width: 600px) {
-            .category-card {
-                grid-column: span 3;
-                border-radius: 20px;
-                margin-bottom: 15px;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .category-card {
-                grid-column: span 2;
-                border-radius: 25px;
-                margin-bottom: 20px;
-            }
-        }
-
-        .category-card .big-emoji {
-            font-size: 2.5rem;
-            margin-top: -15px;
-            margin-bottom: 8px;
-            z-index: 2;
-            position: relative;
-        }
-
-        @media (min-width: 600px) {
-            .category-card .big-emoji {
-                font-size: 3.5rem;
-                margin-top: -20px;
-                margin-bottom: 12px;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .category-card .big-emoji {
-                font-size: 4.5rem;
-                margin-top: -30px;
-                margin-bottom: 15px;
-            }
-        }
-
-        .category-card .category-title {
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            z-index: 2;
-            position: relative;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        @media (min-width: 600px) {
-            .category-card .category-title {
-                font-size: 2.2rem;
-                margin-bottom: 20px;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .category-card .category-title {
-                font-size: 3rem;
-                margin-bottom: 25px;
-                text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            }
-        }
-
-        .category-card .info-box {
-            background: rgba(255,255,255,0.9);
-            border-radius: 10px;
-            padding: 12px;
-            width: 85%;
-            z-index: 2;
-            position: relative;
-            border-top: 3px solid #ef7c8e;
-        }
-
-        @media (min-width: 600px) {
-            .category-card .info-box {
-                border-radius: 15px;
-                padding: 16px;
-                border-top-width: 4px;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .category-card .info-box {
-                border-radius: 20px;
-                padding: 20px;
-                border-top-width: 6px;
-            }
-        }
-
-        .category-card .info-text {
-            font-size: 0.9rem;
-            color: #373f45;
-            line-height: 1.3;
-            font-weight: 500;
-        }
-
-        @media (min-width: 600px) {
-            .category-card .info-text {
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .category-card .info-text {
-                font-size: 1.3rem;
-                line-height: 1.4;
-            }
-        }
-
-        .category-card .subtitle {
             margin-top: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            z-index: 2;
-            position: relative;
         }
 
-        @media (min-width: 600px) {
-            .category-card .subtitle {
-                margin-top: 15px;
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .category-card .subtitle {
-                margin-top: 20px;
-                font-size: 1.4rem;
-            }
-        }
-
-        /* Color variations */
+        /* Different color variations */
         .card-1 { border-color: #ef7c8e; }
         .card-1::before { background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%); }
 
@@ -357,105 +104,112 @@
     </style>
 </head>
 <body>
-    <div class="cards-container">
-        <!-- DULCES Category Card -->
-        <div class="category-card" style="background: linear-gradient(135deg, #ffe8e3 0%, #f8ebec 100%); border: 4px solid #ef7c8e;">
-            <div style="position: absolute; top: 0; left: 0; right: 0; height: 60px; background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%);"></div>
-            
-            <div class="big-emoji">🍯</div>
-            
-            <div class="category-title" style="color: #373f45;">DULCES</div>
-            
-            <div class="info-box">
-                <div class="info-text">
-                    Dulce • Cremoso<br>
-                    Ligero • Fresco<br>
-                    Delicioso
-                </div>
+    <!-- DULCES Category Card -->
+    <div style="width: 500px; height: 500px; background: linear-gradient(135deg, #ffe8e3 0%, #f8ebec 100%); border-radius: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.1); border: 8px solid #ef7c8e; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 120px; background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%);"></div>
+        
+        <div style="font-size: 120px; margin-top: -40px; margin-bottom: 30px; z-index: 2; position: relative;">🍯</div>
+        
+        <div style="font-size: 64px; font-weight: bold; color: #373f45; margin-bottom: 40px; z-index: 2; position: relative; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">DULCES</div>
+        
+        <div style="background: rgba(255,255,255,0.9); border-radius: 20px; padding: 30px; width: 80%; z-index: 2; position: relative; border-top: 6px solid #ef7c8e;">
+            <div style="font-size: 22px; color: #373f45; line-height: 1.4; font-weight: 500;">
+                Dulce • Cremoso<br>
+                Ligero • Fresco<br>
+                Delicioso
             </div>
-            
-            <div class="subtitle" style="color: #ef7c8e;">Sweet & Mild</div>
         </div>
+        
+        <div style="margin-top: 25px; font-size: 24px; color: #ef7c8e; font-weight: 600; z-index: 2; position: relative;">Sweet & Mild</div>
+    </div>
 
-        <!-- FUERTES Category Card -->
-        <div class="category-card" style="background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%); border: 4px solid #db6565;">
-            <div style="position: absolute; top: 0; left: 0; right: 0; height: 60px; background: linear-gradient(135deg, #db6565 0%, #e89a8a 100%);"></div>
-            
-            <div class="big-emoji">🌶️</div>
-            
-            <div class="category-title" style="color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">FUERTES</div>
-            
-            <div class="info-box" style="background: rgba(255,255,255,0.95); border-top-color: #db6565;">
-                <div class="info-text">
-                    Picoso • Salado<br>
-                    Amargo • Agrio<br>
-                    Sabroso
-                </div>
+    <!-- FUERTES Category Card -->
+    <div style="width: 500px; height: 500px; background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%); border-radius: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.1); border: 8px solid #db6565; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 120px; background: linear-gradient(135deg, #db6565 0%, #e89a8a 100%);"></div>
+        
+        <div style="font-size: 120px; margin-top: -40px; margin-bottom: 30px; z-index: 2; position: relative;">🌶️</div>
+        
+        <div style="font-size: 64px; font-weight: bold; color: white; margin-bottom: 40px; z-index: 2; position: relative; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">FUERTES</div>
+        
+        <div style="background: rgba(255,255,255,0.95); border-radius: 20px; padding: 30px; width: 80%; z-index: 2; position: relative; border-top: 6px solid #db6565;">
+            <div style="font-size: 22px; color: #373f45; line-height: 1.4; font-weight: 500;">
+                Picoso • Salado<br>
+                Amargo • Agrio<br>
+                Sabroso
             </div>
-            
-            <div class="subtitle" style="color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">Spicy & Bold</div>
         </div>
+        
+        <div style="margin-top: 25px; font-size: 24px; color: white; font-weight: 600; z-index: 2; position: relative; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">Spicy & Bold</div>
+    </div>
 
-        <!-- Individual Flavor Cards -->
-        <div class="flavor-card card-1">
-            <div class="emoji">🍯</div>
-            <div class="spanish-word">DULCE</div>
-            <div class="english-word">Sweet</div>
-        </div>
+    <!-- Card 1: Dulce -->
+    <div class="flavor-card card-1">
+        <div class="emoji">🍯</div>
+        <div class="spanish-word">DULCE</div>
+        <div class="english-word">Sweet</div>
+    </div>
 
-        <div class="flavor-card card-2">
-            <div class="emoji">🧂</div>
-            <div class="spanish-word">SALADO</div>
-            <div class="english-word">Salty</div>
-        </div>
+    <!-- Card 2: Salado -->
+    <div class="flavor-card card-2">
+        <div class="emoji">🧂</div>
+        <div class="spanish-word">SALADO</div>
+        <div class="english-word">Salty</div>
+    </div>
 
-        <div class="flavor-card card-3">
-            <div class="emoji">🌶️</div>
-            <div class="spanish-word">PICOSO</div>
-            <div class="english-word">Spicy</div>
-        </div>
+    <!-- Card 3: Picoso -->
+    <div class="flavor-card card-3">
+        <div class="emoji">🌶️</div>
+        <div class="spanish-word">PICOSO</div>
+        <div class="english-word">Spicy</div>
+    </div>
 
-        <div class="flavor-card card-4">
-            <div class="emoji">☕</div>
-            <div class="spanish-word">AMARGO</div>
-            <div class="english-word">Bitter</div>
-        </div>
+    <!-- Card 4: Amargo -->
+    <div class="flavor-card card-4">
+        <div class="emoji">☕</div>
+        <div class="spanish-word">AMARGO</div>
+        <div class="english-word">Bitter</div>
+    </div>
 
-        <div class="flavor-card card-5">
-            <div class="emoji">🍋</div>
-            <div class="spanish-word">AGRIO</div>
-            <div class="english-word">Sour</div>
-        </div>
+    <!-- Card 5: Agrio -->
+    <div class="flavor-card card-5">
+        <div class="emoji">🍋</div>
+        <div class="spanish-word">AGRIO</div>
+        <div class="english-word">Sour</div>
+    </div>
 
-        <div class="flavor-card card-6">
-            <div class="emoji">😋</div>
-            <div class="spanish-word">SABROSO</div>
-            <div class="english-word">Tasty</div>
-        </div>
+    <!-- Card 6: Sabroso -->
+    <div class="flavor-card card-6">
+        <div class="emoji">😋</div>
+        <div class="spanish-word">SABROSO</div>
+        <div class="english-word">Tasty</div>
+    </div>
 
-        <div class="flavor-card card-7">
-            <div class="emoji">🥒</div>
-            <div class="spanish-word">FRESCO</div>
-            <div class="english-word">Fresh</div>
-        </div>
+    <!-- Card 7: Fresco -->
+    <div class="flavor-card card-7">
+        <div class="emoji">🥒</div>
+        <div class="spanish-word">FRESCO</div>
+        <div class="english-word">Fresh</div>
+    </div>
 
-        <div class="flavor-card card-8">
-            <div class="emoji">🥛</div>
-            <div class="spanish-word">CREMOSO</div>
-            <div class="english-word">Creamy</div>
-        </div>
+    <!-- Card 8: Cremoso -->
+    <div class="flavor-card card-8">
+        <div class="emoji">🥛</div>
+        <div class="spanish-word">CREMOSO</div>
+        <div class="english-word">Creamy</div>
+    </div>
 
-        <div class="flavor-card card-9">
-            <div class="emoji">🤤</div>
-            <div class="spanish-word">DELICIOSO</div>
-            <div class="english-word">Delicious</div>
-        </div>
+    <!-- Card 9: Delicioso -->
+    <div class="flavor-card card-9">
+        <div class="emoji">🤤</div>
+        <div class="spanish-word">DELICIOSO</div>
+        <div class="english-word">Delicious</div>
+    </div>
 
-        <div class="flavor-card card-10">
-            <div class="emoji">🌿</div>
-            <div class="spanish-word">LIGERO</div>
-            <div class="english-word">Light/Mild</div>
-        </div>
+    <!-- Card 10: Ligero -->
+    <div class="flavor-card card-10">
+        <div class="emoji">🌿</div>
+        <div class="spanish-word">LIGERO</div>
+        <div class="english-word">Light/Mild</div>
     </div>
 </body>
 </html>
