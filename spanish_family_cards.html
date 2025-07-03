@@ -3,35 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spanish Family Cards for Students</title>
+    <title>Spanish Family Cards</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
-            padding: 40px;
+            padding: 20px;
             font-family: 'Montserrat', 'Arial', sans-serif;
-            background: #f0f0f0;
+            background: linear-gradient(135deg, #7ba1a5 0%, #ffe8e3 100%);
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 20px;
             justify-content: center;
+            min-height: 100vh;
         }
 
         .family-card {
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, #ffe8e3 0%, #f8ebec 100%);
-            border-radius: 25px;
+            width: 100%;
+            max-width: 400px;
+            min-height: 600px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border: 8px solid #ef7c8e;
-            position: relative;
-            overflow: hidden;
+            padding: 50px 25px 70px 25px;
         }
 
+        /* Responsive sizing */
+        @media (min-width: 600px) {
+            body {
+                padding: 40px;
+                gap: 30px;
+            }
+            .family-card {
+                width: 45%;
+                min-width: 350px;
+                max-width: 450px;
+                min-height: 700px;
+                padding: 60px 35px 80px 35px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .family-card {
+                width: 30%;
+                min-width: 380px;
+                max-width: 500px;
+                min-height: 800px;
+                padding: 70px 45px 90px 45px;
+            }
+        }
+
+        /* Header gradient background */
         .family-card::before {
             content: '';
             position: absolute;
@@ -39,30 +71,86 @@
             left: 0;
             right: 0;
             height: 120px;
-            background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%);
+            z-index: 1;
         }
 
+        @media (min-width: 600px) {
+            .family-card::before {
+                height: 140px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .family-card::before {
+                height: 160px;
+            }
+        }
+
+        /* Card color themes */
+        .category-card::before { background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%); }
+        .parents-card::before { background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%); }
+        .children-card::before { background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%); }
+        .grandparents-card::before { background: linear-gradient(135deg, #e89a8a 0%, #db6565 100%); }
+        .extended-card::before { background: linear-gradient(135deg, #6b8d94 0%, #7ba1a5 100%); }
+
+        /* CRITICAL: Perfect Emoji Positioning */
         .emoji {
-            font-size: 80px;
-            margin-bottom: 20px;
+            position: absolute !important;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 3.5rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             z-index: 2;
-            position: relative;
-            margin-top: -40px;
         }
 
-        .spanish-word {
-            font-size: 72px;
+        @media (min-width: 600px) {
+            .emoji {
+                top: 105px;
+                font-size: 4.5rem;
+                height: 70px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .emoji {
+                top: 120px;
+                font-size: 5.5rem;
+                height: 80px;
+            }
+        }
+
+        .main-text {
+            font-size: 2.2rem;
             font-weight: bold;
             color: #373f45;
-            margin: 20px 0;
+            margin: 60px 0 15px 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             z-index: 2;
             position: relative;
-            line-height: 1;
+            line-height: 1.1;
+            word-wrap: break-word;
         }
 
-        .english-word {
-            font-size: 48px;
+        @media (min-width: 600px) {
+            .main-text {
+                font-size: 2.6rem;
+                margin: 70px 0 20px 0;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .main-text {
+                font-size: 3rem;
+                margin: 80px 0 25px 0;
+            }
+        }
+
+        .english-text {
+            font-size: 1.8rem;
             color: #666;
             font-style: italic;
             font-weight: 500;
@@ -71,131 +159,204 @@
             margin-top: 10px;
         }
 
-        /* Different color variations */
-        .card-1 { border-color: #ef7c8e; }
-        .card-1::before { background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%); }
+        @media (min-width: 600px) {
+            .english-text {
+                font-size: 2rem;
+                margin-top: 15px;
+            }
+        }
 
-        .card-2 { border-color: #7ba1a5; }
-        .card-2::before { background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%); }
+        @media (min-width: 900px) {
+            .english-text {
+                font-size: 2.2rem;
+                margin-top: 20px;
+            }
+        }
 
-        .card-3 { border-color: #e89a8a; }
-        .card-3::before { background: linear-gradient(135deg, #e89a8a 0%, #db6565 100%); }
+        .category-content {
+            z-index: 2;
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+        }
 
-        .card-4 { border-color: #ef7c8e; }
-        .card-4::before { background: linear-gradient(135deg, #ef7c8e 0%, #e89a8a 100%); }
+        .category-info {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px 0;
+            border-top: 4px solid #ef7c8e;
+            text-align: center;
+        }
 
-        .card-5 { border-color: #7ba1a5; }
-        .card-5::before { background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%); }
+        .category-words {
+            font-size: 1.1rem;
+            color: #373f45;
+            font-weight: 500;
+            line-height: 1.5;
+        }
 
-        .card-6 { border-color: #db6565; }
-        .card-6::before { background: linear-gradient(135deg, #db6565 0%, #ef7c8e 100%); }
+        @media (min-width: 600px) {
+            .category-words {
+                font-size: 1.2rem;
+            }
+        }
 
-        .card-7 { border-color: #e89a8a; }
-        .card-7::before { background: linear-gradient(135deg, #e89a8a 0%, #7ba1a5 100%); }
+        @media (min-width: 900px) {
+            .category-words {
+                font-size: 1.3rem;
+            }
+        }
 
-        .card-8 { border-color: #6b8d94; }
-        .card-8::before { background: linear-gradient(135deg, #6b8d94 0%, #7ba1a5 100%); }
+        .category-label {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.9);
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            color: #373f45;
+            font-weight: 600;
+            z-index: 2;
+            text-align: center;
+            white-space: nowrap;
+        }
 
-        .card-9 { border-color: #ef7c8e; }
-        .card-9::before { background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%); }
+        .category-label .english {
+            color: #999;
+            font-weight: 500;
+        }
 
-        .card-10 { border-color: #7ba1a5; }
-        .card-10::before { background: linear-gradient(135deg, #7ba1a5 0%, #e89a8a 100%); }
+        @media (min-width: 600px) {
+            .category-label {
+                bottom: 25px;
+                padding: 8px 18px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .category-label {
+                bottom: 30px;
+                padding: 10px 22px;
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- PADRES Category Card -->
-    <div style="width: 500px; height: 500px; background: linear-gradient(135deg, #ffe8e3 0%, #f8ebec 100%); border-radius: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.1); border: 8px solid #ef7c8e; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; height: 120px; background: linear-gradient(135deg, #ef7c8e 0%, #db6565 100%);"></div>
-        
-        <div style="font-size: 100px; margin-top: 20px; margin-bottom: 30px; z-index: 2; position: relative;">👫🏽</div>
-        
-        <div style="font-size: 64px; font-weight: bold; color: #373f45; margin-bottom: 25px; z-index: 2; position: relative; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">PADRES</div>
-        
-        <div style="background: rgba(255,255,255,0.9); border-radius: 20px; padding: 25px; width: 80%; z-index: 2; position: relative; border-top: 6px solid #ef7c8e;">
-            <div style="font-size: 22px; color: #373f45; line-height: 1.4; font-weight: 500;">
-                Mamá • Papá<br>
-                Abuelo • Abuela<br>
-                Tío • Tía
+    <div class="family-card category-card">
+        <div class="emoji">👫🏽</div>
+        <div class="main-text">PADRES</div>
+        <div class="category-content">
+            <div class="category-info">
+                <div class="category-words">
+                    Mamá • Papá<br>
+                    Abuelo • Abuela<br>
+                    Tío • Tía
+                </div>
             </div>
         </div>
-        
-        <div style="margin-top: 20px; font-size: 24px; color: #ef7c8e; font-weight: 600; z-index: 2; position: relative;">Parents & Adults</div>
+        <div class="category-label">Adultos | <span class="english">Adults</span></div>
     </div>
 
     <!-- HIJOS Category Card -->
-    <div style="width: 500px; height: 500px; background: linear-gradient(135deg, #7ba1a5 0%, #6b8d94 100%); border-radius: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.1); border: 8px solid #db6565; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; height: 120px; background: linear-gradient(135deg, #db6565 0%, #e89a8a 100%);"></div>
-        
-        <div style="font-size: 100px; margin-top: 20px; margin-bottom: 30px; z-index: 2; position: relative;">👧🏽👦🏽</div>
-        
-        <div style="font-size: 64px; font-weight: bold; color: white; margin-bottom: 25px; z-index: 2; position: relative; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">HIJOS</div>
-        
-        <div style="background: rgba(255,255,255,0.95); border-radius: 20px; padding: 25px; width: 80%; z-index: 2; position: relative; border-top: 6px solid #db6565;">
-            <div style="font-size: 22px; color: #373f45; line-height: 1.4; font-weight: 500;">
-                Hermano • Hermana<br>
-                Hijo • Hija<br>
-                Nieto • Nieta
+    <div class="family-card category-card">
+        <div class="emoji">👧🏽&nbsp;👦🏽</div>
+        <div class="main-text">HIJOS</div>
+        <div class="category-content">
+            <div class="category-info">
+                <div class="category-words">
+                    Hermano • Hermana<br>
+                    Hijo • Hija<br>
+                    Nieto • Nieta
+                </div>
             </div>
         </div>
-        
-        <div style="margin-top: 20px; font-size: 24px; color: white; font-weight: 600; z-index: 2; position: relative; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">Children & Siblings</div>
+        <div class="category-label">Jóvenes | <span class="english">Young People</span></div>
     </div>
 
     <!-- Card 1: Mamá -->
-    <div class="family-card card-1">
+    <div class="family-card parents-card">
         <div class="emoji">👩🏽</div>
-        <div class="spanish-word">MAMÁ</div>
-        <div class="english-word">Mom</div>
+        <div class="main-text">MAMÁ</div>
+        <div class="english-text">Mom</div>
+        <div class="category-label">Padres | <span class="english">Parents</span></div>
     </div>
 
     <!-- Card 2: Papá -->
-    <div class="family-card card-2">
+    <div class="family-card parents-card">
         <div class="emoji">👨🏽</div>
-        <div class="spanish-word">PAPÁ</div>
-        <div class="english-word">Dad</div>
+        <div class="main-text">PAPÁ</div>
+        <div class="english-text">Dad</div>
+        <div class="category-label">Padres | <span class="english">Parents</span></div>
     </div>
 
     <!-- Card 3: Hermano -->
-    <div class="family-card card-3">
+    <div class="family-card children-card">
         <div class="emoji">👦🏽</div>
-        <div class="spanish-word">HERMANO</div>
-        <div class="english-word">Brother</div>
+        <div class="main-text">HERMANO</div>
+        <div class="english-text">Brother</div>
+        <div class="category-label">Hermanos | <span class="english">Siblings</span></div>
     </div>
 
     <!-- Card 4: Hermana -->
-    <div class="family-card card-4">
+    <div class="family-card children-card">
         <div class="emoji">👧🏽</div>
-        <div class="spanish-word">HERMANA</div>
-        <div class="english-word">Sister</div>
+        <div class="main-text">HERMANA</div>
+        <div class="english-text">Sister</div>
+        <div class="category-label">Hermanos | <span class="english">Siblings</span></div>
     </div>
 
     <!-- Card 5: Abuelo -->
-    <div class="family-card card-5">
+    <div class="family-card grandparents-card">
         <div class="emoji">👴🏽</div>
-        <div class="spanish-word">ABUELO</div>
-        <div class="english-word">Grandpa</div>
+        <div class="main-text">ABUELO</div>
+        <div class="english-text">Grandpa</div>
+        <div class="category-label">Abuelos | <span class="english">Grandparents</span></div>
     </div>
 
     <!-- Card 6: Abuela -->
-    <div class="family-card card-6">
+    <div class="family-card grandparents-card">
         <div class="emoji">👵🏽</div>
-        <div class="spanish-word">ABUELA</div>
-        <div class="english-word">Grandma</div>
+        <div class="main-text">ABUELA</div>
+        <div class="english-text">Grandma</div>
+        <div class="category-label">Abuelos | <span class="english">Grandparents</span></div>
     </div>
 
     <!-- Card 7: Tío -->
-    <div class="family-card card-7">
+    <div class="family-card extended-card">
         <div class="emoji">👨🏽‍🦱</div>
-        <div class="spanish-word">TÍO</div>
-        <div class="english-word">Uncle</div>
+        <div class="main-text">TÍO</div>
+        <div class="english-text">Uncle</div>
+        <div class="category-label">Familia extendida | <span class="english">Extended family</span></div>
     </div>
 
     <!-- Card 8: Tía -->
-    <div class="family-card card-8">
+    <div class="family-card extended-card">
         <div class="emoji">👩🏽‍🦱</div>
-        <div class="spanish-word">TÍA</div>
-        <div class="english-word">Aunt</div>
+        <div class="main-text">TÍA</div>
+        <div class="english-text">Aunt</div>
+        <div class="category-label">Familia extendida | <span class="english">Extended family</span></div>
+    </div>
+
+    <!-- Card 9: Hijo -->
+    <div class="family-card children-card">
+        <div class="emoji">👦🏽</div>
+        <div class="main-text">HIJO</div>
+        <div class="english-text">Son</div>
+        <div class="category-label">Hijos | <span class="english">Children</span></div>
+    </div>
+
+    <!-- Card 10: Hija -->
+    <div class="family-card children-card">
+        <div class="emoji">👧🏽</div>
+        <div class="main-text">HIJA</div>
+        <div class="english-text">Daughter</div>
+        <div class="category-label">Hijos | <span class="english">Children</span></div>
     </div>
 </body>
 </html>
