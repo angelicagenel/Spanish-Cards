@@ -7,4 +7,4 @@ They were created using AI-assisted tools (ChatGPT, Claude.ai) under valid comme
 ❗ Redistribution, resale, or modification without express permission is strictly prohibited.
 
 🔗 For custom licenses or educational use, please reach out:
-📩 info@spanish-learning-edge.com
+📩 success@spanish-learning-edge.com
